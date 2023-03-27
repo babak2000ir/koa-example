@@ -1,0 +1,22 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore npm debug log files
+npm-debug.log*
+
+# Ignore environment files
+.env
+
+# Ignore compiled files
+dist/
+build/
+
+# Ignore any files created by IDEs or editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db

@@ -5,23 +5,26 @@ const app = new Koa();
 app.use(bodyParser());
 
 // Hello World route
-app.use(async (ctx) => {
+/* app.use(async (ctx, next) => {
   ctx.body = "Hello World!";
-});
+  next();
+}); */
 
 // Route that returns the request body
-app.use(async (ctx) => {
-  if (ctx.request.body) {
+/* app.use(async (ctx, next) => {
+  if (Object.keys(ctx.request.body).length) {
     ctx.body = ctx.request.body;
   } else {
-    ctx.throw(400, "Bad Request");
+    //ctx.status = 400;
+    //ctx.body = "Bad Request";
+    next()
   }
-});
+}); */
 
 // Route that returns all parameters
-app.use(async (ctx) => {
-  ctx.body = ctx.query;
-});
+//app.use(async (ctx) => {
+//  ctx.body = ctx.query;
+//});
 
 // Route with nested async operation
 app.use(async (ctx) => {
@@ -34,7 +37,7 @@ async function someAsyncOperation() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve("Result 1");
-    }, 1000);
+    }, 2000);
   });
 }
 
